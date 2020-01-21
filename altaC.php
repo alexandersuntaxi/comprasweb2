@@ -55,7 +55,7 @@ if (!isset($_POST) || empty($_POST)) {
     
     } else {
     
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
     
     }
 
