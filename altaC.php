@@ -43,7 +43,7 @@ if (!isset($_POST) || empty($_POST)) {
     $nombre=$_POST["nombre"];
 
 
-    $sql = "INSERT INTO categoria (ID_CATEGORIA, NOMBRE) VALUES ('$id', '$nombre');";
+    $sql = "INSERT INTO CATEGORIA (ID_CATEGORIA, NOMBRE) VALUES ('$id', '$nombre');";
 
 
 
