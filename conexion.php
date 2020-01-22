@@ -1,6 +1,6 @@
 <?php
 /* Conexión BD */
-define('DB_SERVER', 'comprasweb-23-6-95q5m');
+define('DB_SERVER', 'ip-10-0-161-234.ec2.internal');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'rootroot');
 define('DB_DATABASE', 'COMPRASWEB');
