@@ -63,7 +63,7 @@ function obteneconsultaunCampo($db,$campo,$tabla) {
 function obteneLocalidad($db) {
 	$LOCALIDADES = array();
 	
-	$sql = "SELECT LOCALIDAD  FROM AlMACEN";
+	$sql = "SELECT LOCALIDAD FROM ALMACEN";
 	
 	$resultado = mysqli_query($db, $sql);
 	if ($resultado) {
