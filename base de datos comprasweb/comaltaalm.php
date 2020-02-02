@@ -95,12 +95,13 @@ function obteneValores($db) {
             }
 
         }
+		   var_dump( $numero_almacen);
         $Ultimovalor=array_pop($numero_almacen);
 
 		
     }
     
-    
+   
     
     return $Ultimovalor;
 }
