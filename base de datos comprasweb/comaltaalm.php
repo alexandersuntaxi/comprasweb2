@@ -82,7 +82,7 @@ function incrementar($db){
     recogidos de la base de datos 
   */
     
-    if(count($numeros)==0)//aqui solo pasa la primera vez
+    if(count($numeros)=="0")//aqui solo pasa la primera vez
     $Ultimovalor=10;
     else{
         $Ultimovalor=array_pop($numeros);
