@@ -11,7 +11,7 @@
 <h1>ALTA ALMACEN - alexander_suntaxi_acosta</h1>
 <?php
 include "conexion.php";
-include "Fvalidaciones.php";
+
 
 
 
@@ -80,7 +80,7 @@ function altaAlmacenes($db,$sql){
 
 function obteneValores($db) {
 	$numero_almacen = array();
-    
+    	echo "adgdag";
 	$sql = "SELECT NUM_ALMACEN  FROM AlMACEN";
 	
 	$resultado = mysqli_query($db, $sql);
