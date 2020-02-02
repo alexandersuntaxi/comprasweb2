@@ -85,7 +85,8 @@ function obteneValores($db) {
 	
 	$resultado = mysqli_query($db, $sql);
 	if ($resultado) {
-        $rowcount=mysqli_num_rows($resultado);
+		echo "dagadg";
+      echo  $rowcount=mysqli_num_rows($resultado);
         if($rowcount==0){
             return 0;
 
