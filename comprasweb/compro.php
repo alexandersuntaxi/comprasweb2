@@ -81,6 +81,7 @@ else{
 	$nuevacantidad=$CANTIDAD-$CANTIDADModi;
 	/**gdagdagaddgadga */
 	$hoy=date('Y-m-d h:m:s');
+	ECHO $hoy;
 		
 $sql = "INSERT INTO COMPRA (NIF,ID_PRODUCTO,FECHA_COMPRA,UNIDADES) VALUES ('$NIF','$ID_PRODUCTO','$hoy','$CANTIDADModi');";
 	ejecutarSQL($db,$sql);
@@ -89,21 +90,8 @@ $sql = "UPDATE ALMACENA SET CANTIDAD='$nuevacantidad' WHERE ID_PRODUCTO='$ID_PRO
 
 }
 
-	//	
-//	$Id_productoV=validacion($db,$ID_PRODUCTO,$CANTIDADModi);
-//	if(empty($Id_productoV))
-//	echo "no es valido esa cantidad";
-/*	else{
-		
-		$nuevacantidad=$CANTIDAD-$CANTIDADModi;
-		$hoy = date("Y-m-d");   
-		echo $hoy;
-		//$sql = "INSERT INTO COMPRA (NIF,ID_PRODUCTO,FECHA_COMPRA,UNIDADES) VALUES ('$NIF','$Id_productoV','$hoy','$CANTIDADModi');";
-		//ejecutarSQL($db,$sql);
-		//$sql = "UPDATE ALMACENA SET CANTIDAD='$nuevacantidad' WHERE ID_PRODUCTO='$ID_PRODUCTO'";
-		//ejecutarSQL($db,$sql);
-	}
-  */
+	
+ 
     null;
 	
 }
@@ -143,25 +131,7 @@ function obtenerCantidad($db,$ID_PRODUCTO,$NUM_ALMACEN){
 
 
 }
-/*
-function validacion($db,$ID_PRODUCTO,$CANTIDADModi){
-   
-    $CANTIDAD=0;
-	$sql = "SELECT ID_PRODUCTO  FROM ALMACENA where ID_PRODUCTO='$ID_PRODUCTO' and CANTIDAD >= '$CANTIDADModi'";
-	
-	$resultado = mysqli_query($db, $sql);
-	if ($resultado) {
-		while ($row = mysqli_fetch_assoc($resultado)) {
-			
-			$CANTIDAD = $row['ID_PRODUCTO'];
-		}
-	}
 
-	return $CANTIDAD;
-
-
-}
-*/
 
 function ejecutarSQL($db,$sql){
 
@@ -198,7 +168,7 @@ function Obtener_IDPRODUCTO($db,$nombre) {
 function obtenerProductos($db) {
 	$ALMACEN = array();
 	
-	$sql = "SELECT DISTINCT NOMBRE  FROM PRODUCTO,ALMACENA where producto.Id_producto=almacena.Id_producto ";
+	$sql = "SELECT DISTINCT NOMBRE FROM PRODUCTO,ALMACENA where PRODUCTO.ID_PRODUCTO=ALMACENA.ID_PRODUCTO";
 	$sql=strtoupper($sql);
 	$resultado = mysqli_query($db, $sql);
 	if ($resultado) {
