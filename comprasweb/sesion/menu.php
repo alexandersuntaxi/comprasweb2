@@ -32,7 +32,7 @@ echo "Acceso Restringido debes hacer Login con tu usuario";
 <?php
 function menu(){
 
-   echo " <br/><a href='comprar.php'>ir a la tienda</a>";
+   echo " <br/><a href='carrito.php'>ir a la tienda</a>";
 
 }
 ?>
