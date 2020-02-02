@@ -46,16 +46,17 @@ if (!isset($_POST) || empty($_POST)) {
   unnúmerosecuencial que comenzará
   en 10 y se incrementará de 10 en 10*/
 
-  $localiad=$_POST['localidad'];
-  $codigoAlmacen=incrementar($db);
-  
+   $localiad=$_POST['localidad'];
+ echo $codigoAlmacen=obteneValores($db)+10;
+ 
   
   $sql = "INSERT INTO ALMACEN (NUM_ALMACEN,LOCALIDAD) VALUES ('$codigoAlmacen','$localiad');";
-  if (validarlocalidad($db,$localiad)==false && $localiad ){
+  if (validarlocalidad($db,$localiad)==false ){
     altaAlmacenes($db,$sql);
   }else{
       echo "no se puede esta provincia";
   }
+
   
 }
 ?>
@@ -76,37 +77,32 @@ function altaAlmacenes($db,$sql){
     }
 }
 
-function incrementar($db){
-    $numeros=obteneValores($db);
-    /*aqui esta todos los valores 
-    recogidos de la base de datos 
-  */
-    
-    if(count($numeros)=="0")//aqui solo pasa la primera vez
-    $Ultimovalor=10;
-    else{
-        $Ultimovalor=array_pop($numeros);
-        $Ultimovalor=intval($Ultimovalor);
-        $Ultimovalor+=10;
-    }
-    return $Ultimovalor;
-
-    
-
-}
 
 function obteneValores($db) {
 	$numero_almacen = array();
-	
+    
 	$sql = "SELECT NUM_ALMACEN  FROM AlMACEN";
 	
 	$resultado = mysqli_query($db, $sql);
 	if ($resultado) {
-		while ($row = mysqli_fetch_assoc($resultado)) {
-			$numero_almacen[] = $row['NUM_ALMACEN'];
-		}
-	}
-	return $numero_almacen;
+        $rowcount=mysqli_num_rows($resultado);
+        if($rowcount==0){
+            return 0;
+
+        }else{
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                $numero_almacen[] = $row['NUM_ALMACEN'];
+            }
+
+        }
+        $Ultimovalor=array_pop($numero_almacen);
+
+		
+    }
+    
+    
+    
+    return $Ultimovalor;
 }
 
 ?>
