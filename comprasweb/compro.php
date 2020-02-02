@@ -79,6 +79,7 @@ else{
 	echo  "<br>";
 	$CANTIDAD=obtenerCantidad($db,$ID_PRODUCTO,$id_almacen);
 	$nuevacantidad=$CANTIDAD-$CANTIDADModi;
+	/*esto crea la hora*/
 	$hoy=date('Y-m-d h:m:s');
 		
 $sql = "INSERT INTO COMPRA (NIF,ID_PRODUCTO,FECHA_COMPRA,UNIDADES) VALUES ('$NIF','$ID_PRODUCTO','$hoy','$CANTIDADModi');";
