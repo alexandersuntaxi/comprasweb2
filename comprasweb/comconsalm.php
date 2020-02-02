@@ -75,7 +75,7 @@ function obteneInformacion($db,$ALMACEN){
     <tr>";
    
     $sql = "SELECT almacena.ID_PRODUCTO ,producto.NOMBRE, almacena.Num_Almacen,almacena.CANTIDAD FROM ALMACENA,PRODUCTO where almacena.ID_PRODUCTO=producto.ID_PRODUCTO and almacena.Num_Almacen='$ALMACEN'";
-    
+    $sql =strtoupper($sql);
     $resultado = mysqli_query($db, $sql);
     if ($resultado) {
         while ($row = mysqli_fetch_assoc($resultado)) {
